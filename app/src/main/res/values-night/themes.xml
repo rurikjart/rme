@@ -1,12 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
 
- <style name="Theme.RMe" parent="AppTheme.Base" />
+    <style name="Theme.RMe" parent="Theme.AppCompat.Light.NoActionBar" />
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.Default" parent="Theme.RMe">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="windowActionBar">false</item>
+        <item name="colorControlNormal">@color/color_white</item>
+
     </style>
 
 

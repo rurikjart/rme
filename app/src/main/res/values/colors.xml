@@ -4,5 +4,5 @@
     <color name="colorPrimary">#00acc1</color>
     <color name="colorPrimaryDark">#008a9a</color>
     <color name="mainBackground">#e2e2e2</color>
-    <color name="text_color_white">#FBFAFA</color>
+    <color name="color_white">#FBFAFA</color>
 </resources>
