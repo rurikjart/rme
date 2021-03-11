@@ -1,5 +1,6 @@
 package org.ut.rme;
 
+import android.support.design.widget.TabLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int LAYOUT = R.layout.activity_main;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         // точка входа для логики, создаем тул бар
         initToolbar();
         initNavigationView();
+
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
     }
 
 
