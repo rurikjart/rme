@@ -16,8 +16,8 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
 
         tabs = new String[] {
                 "Tab 1",
-                "Напоминания",
-                "Tab 2"
+              //  "Напоминания",
+              //  "Tab 2"
         };
     }
 
@@ -31,14 +31,17 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
 
         switch (position) {
+
             case 0:
                 return ExampleFragment.getInstance();
 
-            case 1:
-                return ExampleFragment.getInstance();
+            case 1: break;
+              //  return ExampleFragment.getInstance();
 
-            case 3:
-                return ExampleFragment.getInstance();
+            case 2: break;
+               // return ExampleFragment.getInstance();
+
+
         }
 
 

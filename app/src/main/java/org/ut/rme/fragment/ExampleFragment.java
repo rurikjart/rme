@@ -16,17 +16,19 @@ public class ExampleFragment extends Fragment {
 
     private View view;
 
-    //
+
     public static ExampleFragment getInstance() {
         Bundle args = new Bundle();
         ExampleFragment fragment = new ExampleFragment();
+        fragment.setArguments(args);
+
         return fragment;
     }
 
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView( LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
         view = inflater.inflate(LAYOUT, container, false);
         return view;
     }
