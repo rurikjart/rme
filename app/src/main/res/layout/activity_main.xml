@@ -53,8 +53,8 @@
     android:src="@drawable/plus_outline"
     android:layout_gravity="end|bottom"
     android:layout_marginBottom="@dimen/fab_margin"
-    android:layout_marginRight="@dimen/fab_margin"
-    />
+    android:layout_marginEnd="@dimen/fab_margin"
+    android:contentDescription="@string/todo" />
 
 
 

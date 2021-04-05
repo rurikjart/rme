@@ -5,4 +5,5 @@
 
     <string name="view_navigation_open">Open</string>
     <string name="view_navigation_close">Close</string>
+    <string name="todo">TODO</string>
 </resources>
