@@ -1,24 +1,27 @@
 package org.ut.rme.adapter;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import org.ut.rme.fragment.ExampleFragment;
+import org.ut.rme.R;
+
+import java.util.Map;
 
 public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
 
-    private String[] tabs;
+    private Map<Integer, Fragment> tabs;
+    private Context context;
 
-    public TabsPagerFragmentAdapter(FragmentManager fm) {
+    public TabsPagerFragmentAdapter(Context context, FragmentManager fm) {
         super(fm);
-
-        tabs = new String[] {
-                "Tab 1",
-                "Напоминания",
-                "Tab 2"
-        };
+        this.context = context;
+        tabs.put(0, context.getString(R.string.tab_item_history));
+        tabs.put(1, context.getString(R.string.tab_item_ideas));
+        tabs.put(2, context.getString(R.string.tab_item_todo));
+        tabs.put(3, context.getString(R.string.tab_item_birthdays));
     }
 
     @Nullable
@@ -30,22 +33,7 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        switch (position) {
-
-            case 0:
-                return ExampleFragment.getInstance();
-
-            case 1: //break;
-                return ExampleFragment.getInstance();
-
-            case 2: //break;
-                return ExampleFragment.getInstance();
-
-
-        }
-
-
-        return null;
+        return tabs.get(position);
     }
 
     @Override

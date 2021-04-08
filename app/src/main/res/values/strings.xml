@@ -7,4 +7,11 @@
     <string name="view_navigation_open">Open</string>
     <string name="view_navigation_close">Close</string>
     <string name="todo">TODO</string>
+
+    <string name="tab_item_history">History</string>
+    <string name="tab_item_ideas">Open</string>
+    <string name="tab_item_todo">TODO</string>
+    <string name="tab_item_birthdays">Birthdays</string>
+
+
 </resources>
