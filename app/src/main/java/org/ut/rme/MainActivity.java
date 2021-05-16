@@ -1,5 +1,6 @@
 package org.ut.rme;
 
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -12,7 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 import org.ut.rme.adapter.TabsFragmentAdapter;
+import org.ut.rme.dto.RemindDTO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ViewPager viewPager;
+    TabsFragmentAdapter adapter;
    // private TabLayout tabLayout; удалили его так как он используется только в одном месте распостранять его на весь клас нет смысла
 
     @Override
@@ -55,11 +63,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void initTabs() {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        TabsFragmentAdapter adapter = new TabsFragmentAdapter(this, getSupportFragmentManager());
+
+        adapter = new TabsFragmentAdapter(this, getSupportFragmentManager());
         //инициализируем адаптер
         viewPager.setAdapter(adapter);
+            new RemindMeTask().execute();
 
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
     }
 
@@ -89,6 +99,26 @@ public class MainActivity extends AppCompatActivity {
 
     private void showNotificationTab() {
         viewPager.setCurrentItem(Constants.TAB_TWO);
+    }
+
+    private class RemindMeTask extends AsyncTask<Void, Void, RemindDTO> {
+
+        @Override
+        protected RemindDTO doInBackground(Void... voids) {
+            RestTemplate template = new RestTemplate();
+            template.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+
+
+
+            return template.getForObject(Constants.URL.GET_REMIND_ITEM, RemindDTO.class);
+        }
+
+        @Override
+        protected void onPostExecute(RemindDTO remindDTO) {
+            List<RemindDTO> list = new ArrayList<>();
+            list.add(remindDTO);
+            adapter.setData(list);
+        }
     }
 
 
