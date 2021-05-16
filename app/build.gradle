@@ -22,6 +22,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions{
+    exclude'META-INF/notice.txt'
+    exclude'META-INF/licence.txt'
+    exclude'META-INF/NOTICE'
+        exclude'META-INF/LICENCE'
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

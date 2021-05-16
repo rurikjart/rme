@@ -64,5 +64,6 @@ public class TabsFragmentAdapter extends FragmentPagerAdapter {
 
     public void setData(List<RemindDTO> data) {
         this.data = data;
+        historyFragment.refreshData(data);
     }
 }
